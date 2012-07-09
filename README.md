@@ -21,6 +21,8 @@ Full list of commands you can see on http://redis.io/commands
 
 Enjoy!
 
+--------------------------------------------------
+
 # TinyRedisClient
 
 *TinyRedisClient - самый легковесный клиент для Redis, написанный на PHP*
