@@ -27,7 +27,7 @@ Full list of commands you can see on http://redis.io/commands
 
 *TinyRedisClient - самый легковесный клиент для Redis, написанный на PHP*
 
-**Основные момента**
+**Основные моменты**
 
 * *Полнофункциональный:* поддерживает все команды Redis
 * *Простой:* только протокол Redis, ничего лишнего
