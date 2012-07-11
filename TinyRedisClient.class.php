@@ -9,7 +9,8 @@
  * 
  * Full list of commands you can see on http://redis.io/commands
  * 
- *  @author ptrofimov
+ * @link https://github.com/ptrofimov/tinyredisclient
+ * @author ptrofimov
  */
 class TinyRedisClient
 {
@@ -29,6 +30,11 @@ class TinyRedisClient
 			$cmd .= '$' . strlen( $item ) . "\r\n" . $item . "\r\n";
 		}
 		fwrite( $this->_socket, $cmd );
+		return $this->_parseResponse();
+	}
+	
+	private function _parseResponse()
+	{
 		$line = fgets( $this->_socket );
 		list( $type, $result ) = array( $line[ 0 ], substr( $line, 1, strlen( $line ) - 3 ) );
 		if ( $type == '-' )
@@ -48,13 +54,9 @@ class TinyRedisClient
 		elseif ( $type == '*' )
 		{
 			$count = ( int ) $result;
-			$result = array();
-			for( $i = 0; $i < $count; $i++ )
+			for( $i = 0, $result = array(); $i < $count; $i++ )
 			{
-				$line = fgets( $this->_socket );
-				$length = ( int ) substr( $line, 1, strlen( $line ) - 3 );
-				$line = fread( $this->_socket, $length + 2 );
-				$result[] = substr( $line, 0, strlen( $line ) - 2 );
+				$result[] = $this->_parseResponse();
 			}
 		}
 		return $result;

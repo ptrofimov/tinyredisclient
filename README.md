@@ -6,7 +6,7 @@
 
 * *Full-featured:* supports all Redis commands
 * *Simple:* just Redis protocol, nothing more
-* *Really tiny:* only 48 lines of code
+* *Really tiny:* only 50 lines of code
 * *Requires nothing:* pure PHP implementation
 
 **Usage example**
@@ -31,7 +31,7 @@ Full list of commands you can see on http://redis.io/commands
 
 * *Полнофункциональный:* поддерживает все команды Redis
 * *Простой:* только протокол Redis, ничего лишнего
-* *Крошечный:* всего 48 строк кода
+* *Крошечный:* всего 50 строк кода
 * *Нетребовательный:* написан на чистом PHP
 
 **Пример использования**
