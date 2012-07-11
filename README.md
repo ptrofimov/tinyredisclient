@@ -19,7 +19,7 @@ $value = $client->get( 'key' );
 
 Full list of commands you can see on http://redis.io/commands
 
-[Download](https://github.com/downloads/ptrofimov/tinyredisclient/TinyRedisClient.class.php.zip) and enjoy!
+[Download](https://github.com/downloads/ptrofimov/tinyredisclient/TinyRedisClient2.class.php.zip) and enjoy!
 
 --------------------------------------------------
 
@@ -44,4 +44,4 @@ $value = $client->get( 'ключ' );
 
 Полный список команд Redis вы можете найти на http://redis.io/commands
 
-[Скачивайте](https://github.com/downloads/ptrofimov/tinyredisclient/TinyRedisClient.class.php.zip) и наслаждайтесь!
+[Скачивайте](https://github.com/downloads/ptrofimov/tinyredisclient/TinyRedisClient2.class.php.zip) и наслаждайтесь!
