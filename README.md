@@ -1,4 +1,4 @@
-# TinyRedisClient
+# TinyRedisClient ![English version](http://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png)
 
 *TinyRedisClient - the most lightweight Redis client written in PHP*
 
@@ -23,7 +23,7 @@ Full list of commands you can see on http://redis.io/commands
 
 --------------------------------------------------
 
-# TinyRedisClient
+# TinyRedisClient ![Русская версия](http://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png)
 
 *TinyRedisClient - самый легковесный клиент для Redis, написанный на PHP*
 
