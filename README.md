@@ -1,6 +1,6 @@
 # TinyRedisClient ![English version](http://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png)
 
-*TinyRedisClient - the most lightweight Redis client written in PHP*
+*TinyRedisClient is the most lightweight Redis client written in PHP*
 
 **Key points**
 
