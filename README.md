@@ -45,3 +45,7 @@ $value = $client->get( 'ключ' );
 Полный список команд Redis вы можете найти на http://redis.io/commands
 
 [Скачивайте](https://github.com/downloads/ptrofimov/tinyredisclient/TinyRedisClient2.class.php.zip) и наслаждайтесь!
+
+--------------------------------------------------
+
+Keywords: redis, storage, nosql, php, client, lightweight, light, easy, simple, small, tiny, protocol
