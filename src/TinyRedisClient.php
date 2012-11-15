@@ -12,10 +12,22 @@
  * @author Petr Trofimov <petrofimov@yandex.ru>
  * @see https://github.com/ptrofimov
  */
+class TinyRedisClient_Exception extends Exception {}
+
 class TinyRedisClient
 {
+	/**
+	 * Socket connection
+	 *
+	 * @var resource
+	 */
 	private $_socket;
 	
+	/**
+	 * Constructor
+	 *
+	 * @param string $server e.g. "localhost:6379"
+	 */
 	public function __construct( $server )
 	{
 		$this->_socket = stream_socket_client( $server );
@@ -37,11 +49,11 @@ class TinyRedisClient
 	{
 		$line = fgets( $this->_socket );
 		list( $type, $result ) = array( $line[ 0 ], substr( $line, 1, strlen( $line ) - 3 ) );
-		if ( $type == '-' )
+		if ( $type == '-' ) // error message
 		{
-			throw new Exception( $result );
+			throw new TinyRedisClient_Exception( $result );
 		}
-		elseif ( $type == '$' )
+		elseif ( $type == '$' ) // bulk reply
 		{
 			if ( $result == -1 )
 				$result = null;
@@ -51,7 +63,7 @@ class TinyRedisClient
 				$result = substr( $line, 0, strlen( $line ) - 2 );
 			}
 		}
-		elseif ( $type == '*' )
+		elseif ( $type == '*' ) // multi-bulk reply
 		{
 			$count = ( int ) $result;
 			for( $i = 0, $result = array(); $i < $count; $i++ )
