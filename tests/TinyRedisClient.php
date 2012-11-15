@@ -5,7 +5,7 @@
  * @author Petr Trofimov <petrofimov@yandex.ru>
  * @see https://github.com/ptrofimov
  */
-require_once __DIR__ . '/../src/TinyRedisClient.php';
+require_once( __DIR__ . '/../src/TinyRedisClient.php' );
 
 class TinyRedisClientTest extends PHPUnit_Framework_TestCase
 {
