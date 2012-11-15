@@ -1,7 +1,7 @@
 {
 	"name" : "ptrofimov/tinyredisclient",
 	"description" : "The most lightweight Redis client written in PHP",
-	"keywords" : "redis, client",
+	"keywords" : [ "redis" , "client" ],
 	"homepage" : "https://github.com/ptrofimov/tinyredisclient",
 	"type" : "library",
 	"license" : "MIT",
