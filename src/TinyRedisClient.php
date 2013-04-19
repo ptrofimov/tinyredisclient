@@ -3,36 +3,31 @@
  * TinyRedisClient - the most lightweight Redis client written in PHP
  *
  * Usage example:
- * $client = new TinyRedisClient( 'host:port' );
- * $client->set( 'key', 'value' );
- * $value = $client->get( 'key' );
+ * $client = new TinyRedisClient("host:port");
+ * $client->set("key", "value");
+ * $value = $client->get("key");
  *
  * Full list of commands you can see on http://redis.io/commands
  *
  * @author Petr Trofimov <petrofimov@yandex.ru>
  * @see https://github.com/ptrofimov
  */
-class TinyRedisClient_Exception extends Exception
-{
-}
-
 class TinyRedisClient
 {
-    /**
-     * Socket connection
-     *
-     * @var resource
-     */
+    /** @var resource */
     private $_socket;
 
     /**
-     * Constructor
-     *
      * @param string $server e.g. "localhost:6379"
      */
     public function __construct($server)
     {
         $this->_socket = stream_socket_client($server);
+    }
+
+    private function getSocket()
+    {
+        return
     }
 
     public function __call($method, array $args)
@@ -43,6 +38,7 @@ class TinyRedisClient
             $cmd .= '$' . strlen($item) . "\r\n" . $item . "\r\n";
         }
         fwrite($this->_socket, $cmd);
+
         return $this->_parseResponse();
     }
 
@@ -50,24 +46,22 @@ class TinyRedisClient
     {
         $line = fgets($this->_socket);
         list($type, $result) = array($line[0], substr($line, 1, strlen($line) - 3));
-        if ($type == '-') // error message
-        {
-            throw new TinyRedisClient_Exception($result);
-        } elseif ($type == '$') // bulk reply
-        {
-            if ($result == -1)
+        if ($type == '-') { // error message
+            throw new Exception($result);
+        } elseif ($type == '$') { // bulk reply
+            if ($result == -1) {
                 $result = null;
-            else {
+            } else {
                 $line = fread($this->_socket, $result + 2);
                 $result = substr($line, 0, strlen($line) - 2);
             }
-        } elseif ($type == '*') // multi-bulk reply
-        {
+        } elseif ($type == '*') { // multi-bulk reply
             $count = ( int ) $result;
             for ($i = 0, $result = array(); $i < $count; $i++) {
                 $result[] = $this->_parseResponse();
             }
         }
+
         return $result;
     }
 }
